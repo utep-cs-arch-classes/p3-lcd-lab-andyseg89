@@ -3,6 +3,32 @@
 #include "lcddraw.h"
 
 void
+draw_monito(u_int center) {
+  fillRectangle((center + 6), (center + 10), 8, 40, COLOR_GREEN); //left_col, row, w, h
+  fillRectangle((center + 14), (center + 2), 4, 64, COLOR_GREEN);
+  fillRectangle((center + 18), (center + 2), 4, 64, COLOR_GREEN);
+  fillRectangle((center + 22), (center - 15), 8, 81, COLOR_GREEN);
+  fillRectangle((center + 26), (center - 15), 26, 8, COLOR_GREEN);
+  fillRectangle((center + 30), (center + 2), 20, 48, COLOR_GREEN);
+  fillRectangle((center + 48), (center - 15), 8, 81, COLOR_GREEN);
+  fillRectangle((center + 56), (center + 2), 8, 64, COLOR_GREEN);
+  fillRectangle((center + 64), (center + 10), 8, 40, COLOR_GREEN);
+}
+
+void
+draw_monito2(u_int center) {
+  fillRectangle((center + 6), (center + 10), 8, 25, COLOR_GREEN); //left_col, row, w, h
+  fillRectangle((center + 14), (center + 2), 4, 64, COLOR_GREEN);
+  fillRectangle((center + 18), (center + 2), 4, 64, COLOR_GREEN);
+  fillRectangle((center + 22), (center - 15), 8, 81, COLOR_GREEN);
+  fillRectangle((center + 26), (center - 15), 26, 8, COLOR_GREEN);
+  fillRectangle((center + 30), (center + 2), 20, 48, COLOR_GREEN);
+  fillRectangle((center + 48), (center - 15), 8, 81, COLOR_GREEN);
+  fillRectangle((center + 56), (center + 2), 8, 64, COLOR_GREEN);
+  fillRectangle((center + 64), (center + 10), 8, 25, COLOR_GREEN);
+}
+
+void
 draw_rectangle(void)
 {
   int height = 10;
@@ -15,6 +41,12 @@ draw_rectangle(void)
   u_int color = (blue << 11) | (green << 5) | red;
 
   fillRectangle(left_col, row, width, height, color);
+}
+
+void
+border(void) {
+  drawRectOutline(0, 0, 125, 158, COLOR_LIME_GREEN);
+  drawRectOutline(10, 10, 100, 140, COLOR_YELLOW);
 }
 
 
