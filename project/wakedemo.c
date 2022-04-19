@@ -27,7 +27,7 @@ void main()
     //  redrawScreen = 0;
     //  check_switches();
     // }
-    check_switches();
+    // check_switches();
     P1OUT &= ~LED;	/* led off */
     or_sr(0x10);	/**< CPU OFF */
     P1OUT |= LED;	/* led on */
