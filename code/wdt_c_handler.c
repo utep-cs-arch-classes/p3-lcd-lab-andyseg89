@@ -8,9 +8,9 @@ void wdt_c_handler(void)
   static int secCount = 0;
 
   secCount ++;
-  if (secCount >= 25) {		/* 10/sec */
+  if (secCount >= 10) {		/* 10/sec */
     secCount = 0;
-    run_game();
+    game = 1;
   }
 }
   

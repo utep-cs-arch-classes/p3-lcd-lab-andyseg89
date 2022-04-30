@@ -15,17 +15,13 @@ static char velocity = 2;
 static char redraw_screen = 0;
 
 void ship(void){
-  if (redraw_screen == 0) {
-    return;
-  }
+  
   if (move_left) {
-    if (x - velocity > 10) {
-      old_x = x;
-      x -= velocity;
-      redraw_screen = 1;
-    }
+    old_x = x;
+    x += velocity;
+    redraw_screen = 1;
   }
-  if (move_right) {
+  else if (move_right) {
     if (x + velocity < 100) {
       old_x = x;
       x += velocity;
@@ -33,8 +29,8 @@ void ship(void){
     }
   }
   if (redraw_screen) {
-    draw_player(old_x, y, COLOR_RED);
-    draw_player(x, y, COLOR_BLUE);
+    draw_player(old_x, y, COLOR_BLUE);
+    draw_player(x, y, COLOR_RED);
     redraw_screen = 0;
   }
 }

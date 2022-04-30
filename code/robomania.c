@@ -5,6 +5,7 @@
 #include "draw_shapes.h"
 #include "buzzer.h"
 #include "draw_ship.h"
+#include "state_machines.h"
 
 // WARNING: LCD DISPLAY USES P1.0.  Do not touch!!! 
 
@@ -23,9 +24,10 @@ void main()
   
   clearScreen(COLOR_BLUE);
   while (1) {			/* forever */
-    if (1) {
+    if (game) {
       ship();
       gun();
+      game = 0;
     }
     P1OUT &= ~LED;	/* led off */
     or_sr(0x10);	/**< CPU OFF */

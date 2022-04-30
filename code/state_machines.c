@@ -4,7 +4,7 @@
 #include "buzzer.h"
 #include "draw_ship.h"
 
-unsigned int game = 1;
+unsigned int game = 0;
 unsigned int animation = 0;
 
 static int dance_counter = 0;
