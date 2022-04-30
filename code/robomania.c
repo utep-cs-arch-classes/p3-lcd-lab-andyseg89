@@ -23,9 +23,9 @@ void main()
   
   clearScreen(COLOR_BLUE);
   while (1) {			/* forever */
-    if (game) {
+    if (1) {
       ship();
-      gun()
+      gun();
     }
     P1OUT &= ~LED;	/* led off */
     or_sr(0x10);	/**< CPU OFF */

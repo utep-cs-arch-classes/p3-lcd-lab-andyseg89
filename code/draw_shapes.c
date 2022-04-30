@@ -93,34 +93,4 @@ draw_player(u_int x, u_int y, u_int color) {
   fillRectangle(x - 1, y + 16, 2, 2, color);
 }
 
-void
-update_shape(void)
-{
-  static unsigned char row = screenHeight / 2, col = screenWidth / 2;
-  static char blue = 31, green = 0, red = 31;
-  static unsigned char step = 0;
-  if (switches & SW4) return;
-  if (step <= 60) {
-    int startCol = col - step;
-    int endCol = col + step;
-    int width = 1 + endCol - startCol;
-    // a color in this BGR encoding is BBBB BGGG GGGR RRRR
-    unsigned int color = (blue << 11) | (green << 5) | red;
-    fillRectangle(startCol, row+step, width, 1, color);
-    fillRectangle(startCol, row-step, width, 1, color);
-    if (switch3_down){
-      green = (green + 1) % 64;
-      buzzer_set_period(1000);
-    }
-    if (switch2_down){
-      blue = (blue + 2) % 32;
-      buzzer_set_period(3000);
-    }
-    if (switch1_down) red = (red - 3) % 32;
-    step ++;
-  } else {
-     clearScreen(COLOR_BLUE);
-     step = 0;
-  }
-}
 

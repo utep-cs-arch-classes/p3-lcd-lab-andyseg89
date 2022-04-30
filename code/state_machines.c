@@ -101,9 +101,7 @@ void enemies() {
     buzzer_set_period(0);
   }
   else if (enemy_counter > 500) {
-    switch2_down = 0;
     clearScreen(COLOR_BLUE);
-    sw2_counter = 0;
   }
 }
 

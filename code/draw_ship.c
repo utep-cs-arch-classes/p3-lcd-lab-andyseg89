@@ -16,7 +16,7 @@ static char redraw_screen = 0;
 
 void ship(void){
   if (redraw_screen == 0) {
-    break;
+    return;
   }
   if (move_left) {
     if (x - velocity > 10) {
