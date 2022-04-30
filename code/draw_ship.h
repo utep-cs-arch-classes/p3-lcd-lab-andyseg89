@@ -1,7 +1,9 @@
-extern unsigned int move_left;
-extern unsigned int move_right;
-extern unsigned int shoot;
-extern unsigned int honk;
+extern char move_left;
+extern char move_right;
+extern char shoot;
+extern char honk;
+extern char drawing_enemies;
 
 void ship(void);
 void gun(void);
+void draw_enemies(void);
