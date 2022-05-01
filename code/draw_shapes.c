@@ -24,16 +24,16 @@ draw_pos1(u_int center, u_int color) {
 }
 
 void
-draw_pos2(u_int center) {
-  fillRectangle((center + 6), (center + 10), 8, 25, COLOR_GREEN); //left_col, row, w, h
-  fillRectangle((center + 14), (center + 2), 4, 64, COLOR_GREEN);
-  fillRectangle((center + 18), (center + 2), 4, 64, COLOR_GREEN);
-  fillRectangle((center + 22), (center - 15), 8, 81, COLOR_GREEN);
-  fillRectangle((center + 26), (center - 15), 26, 8, COLOR_GREEN);
-  fillRectangle((center + 30), (center + 2), 20, 48, COLOR_GREEN);
-  fillRectangle((center + 48), (center - 15), 8, 81, COLOR_GREEN);
-  fillRectangle((center + 56), (center + 2), 8, 64, COLOR_GREEN);
-  fillRectangle((center + 64), (center + 10), 8, 25, COLOR_GREEN);
+draw_pos2(u_int center, u_int color) {
+  fillRectangle((center + 6), (center + 10), 8, 25, color); //left_col, row, w, h
+  fillRectangle((center + 14), (center + 2), 4, 64, color);
+  fillRectangle((center + 18), (center + 2), 4, 64, color);
+  fillRectangle((center + 22), (center - 15), 8, 81, color);
+  fillRectangle((center + 26), (center - 15), 26, 8, color);
+  fillRectangle((center + 30), (center + 2), 20, 48, color);
+  fillRectangle((center + 48), (center - 15), 8, 81, color);
+  fillRectangle((center + 56), (center + 2), 8, 64, color);
+  fillRectangle((center + 64), (center + 10), 8, 25, color);
 }
 
 void
@@ -52,21 +52,7 @@ draw_pos3(u_int center, u_int color) {
 }
 
 void
-draw_pos4(u_int center) {
-  fillRectangle((center - 10), (center + 10), 17, 10, COLOR_RED);
-  fillRectangle((center + 6), (center + 10), 8, 10, COLOR_RED); //left_col, row, w, h
-  fillRectangle((center + 14), (center + 2), 4, 64, COLOR_RED);
-  fillRectangle((center + 18), (center + 2), 4, 64, COLOR_RED);
-  fillRectangle((center + 22), (center - 15), 8, 81, COLOR_RED);
-  fillRectangle((center + 26), (center - 15), 26, 8, COLOR_RED);
-  fillRectangle((center + 30), (center + 2), 20, 48, COLOR_RED);
-  fillRectangle((center + 48), (center - 15), 8, 81, COLOR_RED);
-  fillRectangle((center + 56), (center + 2), 8, 64, COLOR_RED);
-  fillRectangle((center + 64), (center + 10), 8, 10, COLOR_RED);
-  fillRectangle((center + 68), (center + 10), 17, 10, COLOR_RED);
-}
-
-void draw_ship(u_int x, u_int y, u_int color){
+draw_ship(u_int x, u_int y, u_int color){
   fillRectangle((x - 1), (y - 1), 7, 3, color);//center
   fillRectangle((x - 2), (y - 4), 2, 12, color);//left wing
   fillRectangle((x + 2), (y + 2), 2, 4, color);//pilot 

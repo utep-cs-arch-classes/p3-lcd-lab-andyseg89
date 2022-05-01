@@ -10,9 +10,8 @@ extern short redrawScreen;
 
 /* draws an hourglass shape */
 void draw_pos1(u_int center, u_int color);
-void draw_pos2(u_int center);
+void draw_pos2(u_int center, u_int color);
 void draw_pos3(u_int center, u_int color);
-void draw_pos4(u_int center);
 void draw_ship(u_int x, u_int y, u_int color);
 void draw_player(u_int x, u_int y, u_int color);
 
