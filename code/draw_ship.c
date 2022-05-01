@@ -13,8 +13,8 @@ static char x = 60;
 static char y = 120;
 static char old_x = 0;
 static char velocity = 2;
-static char init_gun_x = 0;
-static char init_gun_y = 0;
+static char gun_x = 0;
+static char gun_y = 0;
 static char redraw_screen = 0;
 static int enemy_counter = 0;
 static int gun_counter = 0;
@@ -23,48 +23,48 @@ static int dance_counter = 0;
 void draw_enemies(void) {
    if (drawing_enemies) {
     enemy_counter++;
-    if (enemy_counter == 2) {
+    if (enemy_counter == 1) {
       draw_ship(30, 20, COLOR_GREEN);
       buzzer_set_period(1000);
     }
     else if (enemy_counter == 10) {
       buzzer_set_period(0);
     }
-    else if (enemy_counter > 20 && enemy_counter < 22) {
+    else if (enemy_counter == 15) {
       draw_ship(50, 20, COLOR_GREEN);
       buzzer_set_period(2000);
     }
-    else if (enemy_counter == 35) {
+    else if (enemy_counter == 25) {
       buzzer_set_period(0);
     }
-    else if (enemy_counter > 35 && enemy_counter < 37) {
+    else if (enemy_counter == 30) {
       draw_ship(70, 20, COLOR_GREEN);
       buzzer_set_period(3000);
     }
-    else if (enemy_counter == 45) {
+    else if (enemy_counter == 40) {
       buzzer_set_period(0);
     }
-    else if (enemy_counter > 55 && enemy_counter < 57) {
+    else if (enemy_counter == 45) {
       draw_ship(90, 20, COLOR_GREEN);
-      buzzer_set_period(2000);
-    }
-    else if (enemy_counter > 70 && enemy_counter < 72) {
-      draw_ship(30, 20, COLOR_BLUE);
-      draw_ship(30, 40, COLOR_GREEN);
-      buzzer_set_period(3000);
-    }
-    else if (enemy_counter > 85 && enemy_counter < 87) {
-      draw_ship(50, 20, COLOR_BLUE);
-      draw_ship(50, 40, COLOR_GREEN);
       buzzer_set_period(4000);
     }
-    else if (enemy_counter > 104 && enemy_counter < 106) {
+    else if (enemy_counter == 60) {
+      draw_ship(30, 20, COLOR_BLUE);
+      draw_ship(30, 40, COLOR_GREEN);
+      buzzer_set_period(4000);
+    }
+    else if (enemy_counter == 75) {
+      draw_ship(50, 20, COLOR_BLUE);
+      draw_ship(50, 40, COLOR_GREEN);
+      buzzer_set_period(3000);
+    }
+    else if (enemy_counter == 90) {
       draw_ship(70, 20, COLOR_BLUE);
       draw_ship(70, 40, COLOR_GREEN);
       buzzer_set_period(2000);
     }
-    else if (enemy_counter > 120 && enemy_counter < 122) {
-      buzzer_set_period(5000);
+    else if (enemy_counter == 105) {
+      buzzer_set_period(4000);
       draw_ship(90, 20, COLOR_BLUE);
       draw_ship(90, 40, COLOR_GREEN);
       drawing_enemies = 0;
@@ -74,58 +74,52 @@ void draw_enemies(void) {
 
 void gun(void) {
   if (shoot){
-    if (init_gun_x == 0) {
-      init_gun_x = x;
-      init_gun_y = y - 10;
+    if (gun_x == 0) {
+      gun_x = x;
+      gun_y = y - 10;
     }
     gun_counter ++;
     if (gun_counter == 1) {
-      drawRectOutline(init_gun_x, init_gun_y, 2, 2, COLOR_WHITE);
+      drawRectOutline(gun_x, gun_y, 2, 2, COLOR_WHITE);
     }
-    if (gun_counter == 10) {
-      drawRectOutline(init_gun_x, init_gun_y, 2, 2, COLOR_BLUE);
-      drawRectOutline(init_gun_x, init_gun_y - 10, 2, 2, COLOR_WHITE);
+    else if (gun_counter == 10) {
+      drawRectOutline(gun_x, gun_y, 2, 2, COLOR_BLUE);
+      drawRectOutline(gun_x, gun_y - 10, 2, 2, COLOR_WHITE);
     }
-    if (gun_counter == 20) {
-      drawRectOutline(init_gun_x, init_gun_y - 10, 2, 2, COLOR_BLUE);
-      drawRectOutline(init_gun_x, init_gun_y - 20, 2, 2, COLOR_WHITE);
+    else if (gun_counter == 20) {
+      drawRectOutline(gun_x, gun_y - 10, 2, 2, COLOR_BLUE);
+      drawRectOutline(gun_x, gun_y - 20, 2, 2, COLOR_WHITE);
     }    
-    if (gun_counter == 30) {
-      drawRectOutline(init_gun_x, init_gun_y - 20, 2, 2, COLOR_BLUE);
-      drawRectOutline(init_gun_x, init_gun_y - 30, 2, 2, COLOR_WHITE);
+    else if (gun_counter == 30) {
+      drawRectOutline(gun_x, gun_y - 20, 2, 2, COLOR_BLUE);
+      drawRectOutline(gun_x, gun_y - 30, 2, 2, COLOR_WHITE);
     }
-    if (gun_counter == 40) {
-      drawRectOutline(init_gun_x, init_gun_y - 30, 2, 2, COLOR_BLUE);
-      drawRectOutline(init_gun_x, init_gun_y - 40, 2, 2, COLOR_WHITE);
+    else if (gun_counter == 40) {
+      drawRectOutline(gun_x, gun_y - 30, 2, 2, COLOR_BLUE);
+      drawRectOutline(gun_x, gun_y - 40, 2, 2, COLOR_WHITE);
     }
-    if (gun_counter == 50) {
-      drawRectOutline(init_gun_x, init_gun_y - 40, 2, 2, COLOR_BLUE);
-      drawRectOutline(init_gun_x, init_gun_y - 50, 2, 2, COLOR_WHITE);
+    else if (gun_counter == 50) {
+      drawRectOutline(gun_x, gun_y - 40, 2, 2, COLOR_BLUE);
+      drawRectOutline(gun_x, gun_y - 50, 2, 2, COLOR_WHITE);
     }
-    if (gun_counter == 60) {
-      drawRectOutline(init_gun_x, init_gun_y - 50, 2, 2, COLOR_BLUE);
-      drawRectOutline(init_gun_x, init_gun_y - 60, 2, 2, COLOR_WHITE);
+    else if (gun_counter == 60) {
+      drawRectOutline(gun_x, gun_y - 50, 2, 2, COLOR_BLUE);
+      drawRectOutline(gun_x, gun_y - 60, 2, 2, COLOR_WHITE);
     }    
-    if (gun_counter == 70) {
-      drawRectOutline(init_gun_x, init_gun_y - 60, 2, 2, COLOR_BLUE);
-      fillRectangle(init_gun_x-5, init_gun_y - 70, 4, 4, COLOR_RED);
+    else if (gun_counter == 70) {
+      drawRectOutline(gun_x, gun_y - 60, 2, 2, COLOR_BLUE);
+      draw_circle(gun_x, gun_y - 60, 10, COLOR_RED);
     }
-    if (gun_counter == 80) {
-      fillRectangle(init_gun_x-10, init_gun_y - 70, 8, 8, COLOR_RED);
+    else if (gun_counter == 80) {
+      draw_circle(gun_x, gun_y - 60, 20, COLOR_RED);
     }
-    if (gun_counter == 90) {
-      fillRectangle(init_gun_x-20, init_gun_y - 70, 16, 16, COLOR_RED);
+    else if (gun_counter == 85) {
+      draw_circle(gun_x, gun_y - 60, 40, COLOR_RED);
     }
-    if (gun_counter == 100) {
-      fillRectangle(init_gun_x-30, init_gun_y - 70, 32, 32, COLOR_RED);
+    else if (gun_counter == 90) {
+      draw_circle(gun_x, gun_y - 60, 80, COLOR_RED);
     }
-    if (gun_counter == 110) {
-      fillRectangle(init_gun_x-30, init_gun_y - 70, 50, 50, COLOR_RED);
-    }
-    if (gun_counter == 120) {
-      fillRectangle(init_gun_x-30, init_gun_y - 70, 100, 100, COLOR_RED);
-    }
-    if (gun_counter == 130) {
+    else if (gun_counter == 95) {
       clearScreen(COLOR_RED);
       game = 0;
       animation = 1;
@@ -201,6 +195,18 @@ void ship(void){
   }
   if (animation) {
     dance();
+    if (honk) {
+      clearScreen(COLOR_BLUE);
+      animation = 0;
+      game = 1;
+      shoot = 0;
+      gun_counter = 0;
+      dance_counter = 0;
+      enemy_counter = 0;
+      gun_x = 0;
+      gun_y = 0;
+      drawing_enemies = 1;
+    }
   }
 }
 
