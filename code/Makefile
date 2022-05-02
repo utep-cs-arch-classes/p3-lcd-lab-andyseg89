@@ -46,4 +46,4 @@ draw_ship.o: state_machines.h
 
 switch_state.o: switch_state.c state_machines.h
 
-switch_state_s.o: switch_state_s.s state_machines.h draw_shapes.h
+switch_state_s.o: switch_state_s.s draw_shapes.h switches.h state_machines.h
