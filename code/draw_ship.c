@@ -1,3 +1,4 @@
+#include "draw_ship.h"
 #include "state_machines.h"
 #include "switches.h"
 #include "draw_shapes.h"
@@ -164,6 +165,7 @@ void dance(void){
 }
 
 void ship(void){
+  state();
   if (game) {
     if (move_left) {
       if (x - velocity > 10) {

@@ -20,6 +20,7 @@ extern char switch1_down;
 extern char switch2_down;
 extern char switch3_down;
 extern char switch4_down;
+extern char switch_state;
 
 
 /* initializes the switches  */
