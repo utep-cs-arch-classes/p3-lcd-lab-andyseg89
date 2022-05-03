@@ -3,7 +3,7 @@
 
 int switches = 0;
 int switch_pressed =  0;
-char switch_state = 0;
+int switch_state = 0;
 
 /* Updates when the interrupt fires and returns current state of switches */
 static char 

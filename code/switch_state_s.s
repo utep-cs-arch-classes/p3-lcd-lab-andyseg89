@@ -14,7 +14,8 @@ table:
 	.word case_3
 	.word case_4
 state:
-	mov.b &switch_state, r12
+	mov &switch_state, r12
+	and 0x00ff, r12
 	add r12, r12
 	mov table(r12), pc
 default:
