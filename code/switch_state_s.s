@@ -4,7 +4,11 @@
 
 	.global state
 	.extern switch_state
-
+COLOR_RED:	.word 0x001f
+COLOR_GREEN:	.word 0x07e0
+COLOR_YELLOW:	.word 0x07ff
+COLOR_ORANGE:	.word 0x053f
+	
 	
 table:
 	.word default
@@ -14,38 +18,37 @@ table:
 	.word case_4
 state:
 	mov &switch_state, r12
-	#and 0x00ff, r12
 	add r12, r12
 	mov table(r12), pc
 default:
 	jmp end_table
 case_1:
-	mov #80, r12
-	mov #15, r13
-	mov #2, r14
-	mov 0xf800, r15
-	call draw_circle
-	jmp end_table
-case_2:
 	mov #30, r12
 	mov #10, r13
-	mov #4, r14
-	mov 0xf800, r15
-	call draw_circle
+	mov #2, r14
+	mov &COLOR_RED, r15
+	call #draw_circle
+	jmp end_table
+case_2:
+	mov #50, r12
+	mov #10, r13
+	mov #2, r14
+	mov &COLOR_GREEN, r15
+	call #draw_circle
 	jmp end_table
 case_3:
-	mov #80, r12
-	mov #15, r13
+	mov #70, r12
+	mov #10, r13
 	mov #2, r14
-	mov 0xf800, r15
-	#call draw_circle
+	mov &COLOR_YELLOW, r15
+	call #draw_circle
 	jmp end_table
 case_4:
-	mov #30, r12
-	mov #30, r13
-	mov #6, r14
-	mov 0xf800, r15
-	#call draw_circle
+	mov #90, r12
+	mov #10, r13
+	mov #2, r14
+	mov &COLOR_ORANGE, r15
+	call #draw_circle
 	jmp end_table
 end_table:
 	pop r0
