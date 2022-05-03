@@ -165,7 +165,7 @@ void dance(void){
 }
 
 void ship(void){
-  state();
+  //state();
   if (game) {
     if (move_left) {
       if (x - velocity > 10) {
@@ -196,6 +196,7 @@ void ship(void){
     gun();
   }
   if (animation) {
+    drawing_enemies = 0;
     dance();
     if (honk) {
       clearScreen(COLOR_BLUE);
@@ -211,5 +212,3 @@ void ship(void){
     }
   }
 }
-
-

@@ -20,12 +20,13 @@ extern char switch1_down;
 extern char switch2_down;
 extern char switch3_down;
 extern char switch4_down;
-extern int switch_state;
+extern char switch_state;
 
 
 /* initializes the switches  */
 void switch_init(void);
 /* Handles switch interrupts */
 void switch_interrupt_handler(void);
+void state(void);
 
 #endif // _SWITCHES_H_

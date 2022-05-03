@@ -3,7 +3,7 @@
 
 int switches = 0;
 int switch_pressed =  0;
-int switch_state = 0;
+char switch_state = 0;
 
 /* Updates when the interrupt fires and returns current state of switches */
 static char 
@@ -34,32 +34,33 @@ switch_interrupt_handler(void)
 
   if (p2val & SW1) {
     move_left = 0;
-    switch_state = 1;
   }
   else {
     move_left = 1;
+    switch_state = 1;
   }
   if (p2val & SW2) {
     move_right = 0;
-    switch_state = 2;
   }
   else {
     move_right = 1;
+    switch_state = 2;
   }
   if (p2val & SW3) {
     shoot = 0;
-    switch_state = 3;
   }
   else {
     shoot = 1;
+    switch_state = 3;
   }
   if (p2val & SW4) {
     honk = 0;
-    switch_state = 4;
   }
   else {
     honk = 1;
+    switch_state = 4;
   }
+  state();
   // move_left = (p2val & SW1) ? 0 : 1;
   //move_right = (p2val & SW2) ? 0 : 1;
   //shoot = (p2val & SW3) ? 0 : 1;
