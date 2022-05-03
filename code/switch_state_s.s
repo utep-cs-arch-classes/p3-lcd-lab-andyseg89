@@ -14,7 +14,7 @@ table:
 	.word case_4
 state:
 	mov &switch_state, r12
-	and 0x00ff, r12
+	#and 0x00ff, r12
 	add r12, r12
 	mov table(r12), pc
 default:
@@ -24,7 +24,7 @@ case_1:
 	mov #15, r13
 	mov #2, r14
 	mov 0xf800, r15
-	#call draw_circle
+	call draw_circle
 	jmp end_table
 case_2:
 	mov #30, r12
